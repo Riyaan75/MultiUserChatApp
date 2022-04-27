@@ -21,13 +21,13 @@ public class UserScreen extends JFrame{
 	
 	public static void main(String[] args) {
 		
-					UserScreen window = new UserScreen();
+		UserScreen window = new UserScreen();
 					
 	}
 
-	/**
-	 * Create the application.
-	 */
+	
+	//  Create the application.
+	 
 	public UserScreen() {
 		setResizable(false);
 		setTitle("LOGIN");
@@ -56,6 +56,7 @@ public class UserScreen extends JFrame{
 		getContentPane().add(useridlbl);
 		
 		passwordField = new JPasswordField();
+		passwordField.setEchoChar('*');
 		passwordField.setBounds(405, 297, 311, 33);
 		getContentPane().add(passwordField);
 		
