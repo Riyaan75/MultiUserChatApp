@@ -10,9 +10,11 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class UserScreen extends JFrame{
-	private JTextField textField;
+	private JTextField useridtxt;
 	private JPasswordField passwordField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -24,6 +26,12 @@ public class UserScreen extends JFrame{
 		UserScreen window = new UserScreen();
 					
 	}
+	//function that will  acquire userid and password
+	private void register() {
+		String userid = useridtxt.getText();
+		char[] password = passwordField.getPassword();
+		System.out.println("userid " + userid +" password " +password);//classname@hashcode
+	}
 
 	
 	//  Create the application.
@@ -32,6 +40,7 @@ public class UserScreen extends JFrame{
 		setResizable(false);
 		setTitle("LOGIN");
 		getContentPane().setBackground(Color.WHITE);
+		
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("LOGIN");
@@ -40,10 +49,10 @@ public class UserScreen extends JFrame{
 		lblNewLabel.setBounds(303, 11, 175, 75);
 		getContentPane().add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(405, 100, 315, 33);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		useridtxt = new JTextField();
+		useridtxt.setBounds(405, 100, 315, 33);
+		getContentPane().add(useridtxt);
+		useridtxt.setColumns(10);
 		
 		JLabel pwdlbl = new JLabel("Password");
 		pwdlbl.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
@@ -61,6 +70,13 @@ public class UserScreen extends JFrame{
 		getContentPane().add(passwordField);
 		
 		JButton registerbt = new JButton("Register");
+		registerbt.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//function that will collect input fields
+				register();
+			}
+		});
 		registerbt.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		registerbt.setBounds(437, 359, 132, 41);
 		getContentPane().add(registerbt);
@@ -100,7 +116,8 @@ public class UserScreen extends JFrame{
 		getContentPane().add(textField_3);
 		textField_3.setColumns(10);
 		setBackground(Color.WHITE);
-		setBounds(100, 100, 833, 440);
+		setSize( 833, 440);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		
